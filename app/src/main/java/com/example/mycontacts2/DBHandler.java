@@ -18,6 +18,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_LIST_NAME = "name";
     public static final String COLUMN_LIST_EMAIL = "email";
     public static final String COLUMN_LIST_PHONE = "phone";
+    public static final String COLUMN_LIST_GROUP = "group";
 
 
     /**
@@ -71,7 +72,7 @@ public class DBHandler extends SQLiteOpenHelper {
      * @param email myContacts store
      * @param phone myContacts date
      */
-    public void addContact(String name, String email, String phone){
+    public void addContact(String name, String email, String phone, String group){
         // get reference to the shopper database
         SQLiteDatabase db = getWritableDatabase();
 
@@ -82,6 +83,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_LIST_NAME, name);
         values.put(COLUMN_LIST_EMAIL, email);
         values.put(COLUMN_LIST_PHONE, phone);
+        values.put(COLUMN_LIST_GROUP, group);
 
         // insert data in ContentVales object into shoppinglist table
         db.insert(TABLE_MY_CONTACTS, null, values);

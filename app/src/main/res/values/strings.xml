@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyContacts</string>
     <string name="action_settings">Settings</string>
     <string name="action_home" />
@@ -8,10 +8,14 @@
     <string name="phone" />
     <string name="add_contact">Add Contact</string>
     <string name="home">Home</string>
+    <string name="view_family">View Family</string>
+    <string name="view_friends">View Friends</string>
     <string-array name="group">
         <item></item>
         <item>Family</item>
         <item>Friends</item>
     </string-array>
+    <string name="title_activity_view_group">View Group</string>
+
 
 </resources>

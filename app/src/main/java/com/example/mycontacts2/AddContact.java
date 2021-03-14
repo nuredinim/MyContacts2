@@ -112,7 +112,7 @@ public class AddContact extends AppCompatActivity {
             Toast.makeText(this, "Please enter a name, email, phone, and group!", Toast.LENGTH_LONG).show();
         } else {
             // add shopping list into database
-            dbHandler.addContact(name, email, phone);
+            dbHandler.addContact(name, email, phone, group);
 
             // display Shopping list created toast
             Toast.makeText(this, "Contact Created!", Toast.LENGTH_LONG).show();

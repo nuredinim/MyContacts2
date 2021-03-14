@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.shopper.CreateList">
+    tools:context="com.example.mycontacts2.AddContact">
     <item
         android:id="@+id/action_contact"
         android:icon="@android:drawable/ic_menu_add"
@@ -17,5 +17,15 @@
         android:id="@+id/action_add_contact"
         android:orderInCategory="2"
         android:title="@string/add_contact"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_family"
+        android:orderInCategory="3"
+        android:title="@string/view_family"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_view_friends"
+        android:orderInCategory="4"
+        android:title="@string/view_friends"
         app:showAsAction="never" />
 </menu>
