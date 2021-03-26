@@ -16,6 +16,11 @@
         <item>Friends</item>
     </string-array>
     <string name="title_activity_view_group">View Group</string>
+    <string name="title_activity_add_contact">Add Contact</string>
+    <string name="title_activity_view_contact">ViewContact</string>
+    <string name="delete_contact">Delete Contact</string>
+    <string name="home">Home</string>
+    <string name="add_contact">Add Contact</string>
 
 
 </resources>

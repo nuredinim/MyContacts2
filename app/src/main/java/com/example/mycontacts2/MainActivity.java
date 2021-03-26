@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         dbHandler = new DBHandler(this, null);
 
         // initializes listview
-        contactsListView = (ListView) findViewById(R.id.contactsListView);
+        contactsListView = (ListView) findViewById(R.id.contactListView);
 
         // initialize shoppinglsts cursoradapter
         myContactsCursorAdapter = new MyContacts(this,

@@ -108,5 +108,45 @@ public class DBHandler extends SQLiteOpenHelper {
         // execute select statement and return it as a Cursor
         return db.rawQuery(query, null);
     }
+
+    /**
+     * This method gets called when the ViewList Activity is launched
+     * @param contactId shopping list id
+     * @return Cursor that contains all of the items associated with the specified
+     * shoppinglist id
+     */
+    public Cursor getContact(Integer contactId){
+
+        // get reference to the shopper database
+        SQLiteDatabase db = getWritableDatabase();
+
+        // define select statement and store it in a string
+        String query = "SELECT * FROM " + TABLE_MY_CONTACTS +
+                " WHERE " + COLUMN_LIST_ID + " = " + contactId;
+
+        // execute select statement and return it as a Cursor
+        return db.rawQuery(query, null);
+    }
+
+    /**
+     * This method gets called when the delete button in the aciton bar is clicked. It
+     * deletes a row in the shopping rlist item table
+     * @param contactId
+     */
+    public void deleteAContact(Integer contactId){
+
+        // get reference to the shopper database
+        SQLiteDatabase db = getWritableDatabase();
+
+        // define a delete statement and store it in a string
+        String query = "DELETE FROM " + TABLE_MY_CONTACTS + " WHERE " + COLUMN_LIST_ID +
+                " = " + contactId;
+
+        // execute the delete statement
+        db.execSQL(query);
+
+        // close database reference
+        db.close();
+    }
 }
 

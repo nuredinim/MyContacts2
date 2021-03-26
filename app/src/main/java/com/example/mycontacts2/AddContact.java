@@ -50,6 +50,8 @@ public class AddContact extends AppCompatActivity {
         emailEditText = (EditText) findViewById(R.id.emailEditText);
         phoneEditText = (EditText) findViewById(R.id.phoneEditText);
 
+        // initialize Spinners
+        groupSpinner = (Spinner) findViewById(R.id.groupSpinner);
 
         // initialize DBHandler
         dbHandler = new DBHandler(this, null);
