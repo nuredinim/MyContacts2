@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -18,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class AddContact extends AppCompatActivity {
+public class AddContact extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     // declare Intent
     Intent intent;
@@ -55,6 +57,20 @@ public class AddContact extends AppCompatActivity {
 
         // initialize DBHandler
         dbHandler = new DBHandler(this, null);
+
+        // initialize arrayadapter with vaalues in quantities stringarray
+        // and stylize it with style defined by simple_spinner_item
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.group, android.R.layout.simple_spinner_item);
+
+        //further stylize the arrayadapter
+        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+
+        // set the arrayadapter on the spinner
+        groupSpinner.setAdapter(adapter);
+
+        // register an onitemselectedlistern to Spinner
+        groupSpinner.setOnItemSelectedListener(this);
     }
 
 
@@ -119,5 +135,23 @@ public class AddContact extends AppCompatActivity {
             // display Shopping list created toast
             Toast.makeText(this, "Contact Created!", Toast.LENGTH_LONG).show();
         }
+    }
+
+    /**
+     * This method gets called when an item in the Spinner is selected
+     * @param parent Spinner AdapterView
+     * @param view AddItem view
+     * @param position position of item that was selected in the spinner
+     * @param id database id of item that was selected in spinner
+     */
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        group = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

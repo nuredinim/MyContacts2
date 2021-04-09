@@ -10,7 +10,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     // initialize constants for the DB name and version
     public static final String DATABASE_NAME = "contacts.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 3;
 
     // initialize constants for the shoppingList table
     public static final String TABLE_MY_CONTACTS = "myContacts";
@@ -18,7 +18,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_LIST_NAME = "name";
     public static final String COLUMN_LIST_EMAIL = "email";
     public static final String COLUMN_LIST_PHONE = "phone";
-    public static final String COLUMN_LIST_GROUP = "group";
+    public static final String COLUMN_LIST_GROUP = "grp";
 
 
     /**
@@ -40,7 +40,7 @@ public class DBHandler extends SQLiteOpenHelper {
         // define create statement for shoppingLList table and store it in a String
         String query = "CREATE TABLE " + TABLE_MY_CONTACTS + "(" + COLUMN_LIST_ID +
                 " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_LIST_NAME + " TEXT, " +
-                COLUMN_LIST_EMAIL + " TEXT, " + COLUMN_LIST_PHONE + " TEXT);";
+                COLUMN_LIST_EMAIL + " TEXT, " + COLUMN_LIST_PHONE + " TEXT, " + COLUMN_LIST_GROUP + " TEXT)";
 
         // execute the statement
         sqLiteDatabase.execSQL(query);
@@ -148,5 +148,35 @@ public class DBHandler extends SQLiteOpenHelper {
         // close database reference
         db.close();
     }
+
+    /**
+     * This method gets called when the MainActivity is created. It will select
+     * and return all of the data in the myContacts table
+     * @return Cursor that contains all data in the myContacts table
+     */
+    public Cursor getMyContacts(String group){
+
+        // get reference to the shopper database
+        SQLiteDatabase db = getWritableDatabase();
+
+        // define select statement and store it in a string
+        String query = "SELECT * FROM " + TABLE_MY_CONTACTS + " WHERE " + COLUMN_LIST_GROUP + " = " + "'" + group + "'";
+
+        // execute select statement and return it as a Cursor
+        return db.rawQuery(query, null);
+    }
+
+    /**public String getContactGroup(String group){
+
+        // get reference to the shopper database
+        SQLiteDatabase db = getWritableDatabase();
+
+        String query = "SELECT FROM " + TABLE_MY_CONTACTS + " WHERE " + COLUMN_LIST_GROUP +
+                " = " + group;
+
+        String grp = db.rawQuery()
+        return ;
+    }*/
+
 }
 

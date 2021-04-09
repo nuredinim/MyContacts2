@@ -54,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         // set shopping lists cursoradapater on the listview
         contactsListView.setAdapter(myContactsCursorAdapter);
+
+        //intent = new Intent(this, ViewContact.class);
+        //startActivity(intent);
     }
 
     /**
@@ -89,6 +92,16 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_add_contact :
                 // initialize and Intent for the MainActivity and start it
                 intent = new Intent(this, AddContact.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_view_family :
+                intent = new Intent(this, ViewGroup.class);
+                intent.putExtra("_group", "Family");
+                startActivity(intent);
+                return true;
+            case R.id.action_view_friends :
+                intent = new Intent(this, ViewGroup.class);
+                intent.putExtra("_group", "Friends");
                 startActivity(intent);
                 return true;
             default:
